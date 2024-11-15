@@ -5,23 +5,229 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638672512105748922
-    m_Hash: 565120548
+      ticks: 638672574396479426
+    m_Hash: 2067349235
   m_LockFileStatus:
     m_FilePath: D:/RippleMinerTycoon/RippleMinerTycoonGames/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638672512105829435
-    m_Hash: 432609577
+      ticks: 638672574396549426
+    m_Hash: 707554465
 m_EmbeddedPackageManifests:
-  m_ManifestsStatus: {}
+  m_ManifestsStatus:
+    D:/RippleMinerTycoon/RippleMinerTycoonGames/Packages/com.code-philosophy.hybridclr/package.json:
+      m_FilePath: D:/RippleMinerTycoon/RippleMinerTycoonGames/Packages/com.code-philosophy.hybridclr/package.json
+      m_PathExists: 1
+      m_ContentTrackingEnabled: 1
+      m_ModificationDate:
+        serializedVersion: 2
+        ticks: 638672555819847366
+      m_Hash: 3663392148
 m_LocalPackages:
   m_LocalFileStatus: []
 m_ProjectPath: D:/RippleMinerTycoon/RippleMinerTycoonGames/Packages
 m_EditorVersion: 2022.3.48f1c1 (076abfb8be7c)
 m_ResolvedPackages:
+- packageId: com.tuyoogame.yooasset@2.2.4-preview
+  testable: 0
+  isDirectDependency: 1
+  version: 2.2.4-preview
+  source: 1
+  resolvedPath: D:\RippleMinerTycoon\RippleMinerTycoonGames\Library\PackageCache\com.tuyoogame.yooasset@2.2.4-preview
+  assetPath: Packages/com.tuyoogame.yooasset
+  name: com.tuyoogame.yooasset
+  displayName: YooAsset
+  author:
+    name: TuYoo Games
+    email: 
+    url: https://github.com/tuyoogame/YooAsset
+  category: 
+  type: 
+  description: unity3d resources management system.
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 0.0.1-preview
+    - 1.0.0
+    - 1.0.2
+    - 1.0.3
+    - 1.0.4
+    - 1.0.5
+    - 1.0.6
+    - 1.0.7
+    - 1.0.8
+    - 1.0.9
+    - 1.0.10
+    - 1.1.0
+    - 1.1.1
+    - 1.2.0
+    - 1.2.1
+    - 1.2.2
+    - 1.2.3
+    - 1.2.4
+    - 1.3.0-preview
+    - 1.3.1
+    - 1.3.2
+    - 1.3.3
+    - 1.3.4
+    - 1.3.5
+    - 1.3.6
+    - 1.3.7
+    - 1.4.0-preview
+    - 1.4.1-preview
+    - 1.4.2-preview
+    - 1.4.3-preview
+    - 1.4.4-preview
+    - 1.4.5-preview
+    - 1.4.6-preview
+    - 1.4.7
+    - 1.4.8
+    - 1.4.9
+    - 1.4.10
+    - 1.4.11
+    - 1.4.12
+    - 1.4.13
+    - 1.4.14
+    - 1.4.15
+    - 1.4.16
+    - 1.4.17
+    - 1.5.0
+    - 1.5.1
+    - 1.5.2-preview
+    - 1.5.3-preview
+    - 1.5.4-preview
+    - 1.5.5-preview
+    - 1.5.6-preview
+    - 1.5.7
+    - 2.0.0-preview
+    - 2.0.1-preview
+    - 2.0.2-preview
+    - 2.0.3-preview
+    - 2.1.0
+    - 2.1.1
+    - 2.1.2
+    - 2.2.0-preview
+    - 2.2.1-preview
+    - 2.2.2-preview
+    - 2.2.3-preview
+    - 2.2.4-preview
+    compatible:
+    - 0.0.1-preview
+    - 1.0.0
+    - 1.0.2
+    - 1.0.3
+    - 1.0.4
+    - 1.0.5
+    - 1.0.6
+    - 1.0.7
+    - 1.0.8
+    - 1.0.9
+    - 1.0.10
+    - 1.1.0
+    - 1.1.1
+    - 1.2.0
+    - 1.2.1
+    - 1.2.2
+    - 1.2.3
+    - 1.2.4
+    - 1.3.0-preview
+    - 1.3.1
+    - 1.3.2
+    - 1.3.3
+    - 1.3.4
+    - 1.3.5
+    - 1.3.6
+    - 1.3.7
+    - 1.4.0-preview
+    - 1.4.1-preview
+    - 1.4.2-preview
+    - 1.4.3-preview
+    - 1.4.4-preview
+    - 1.4.5-preview
+    - 1.4.6-preview
+    - 1.4.7
+    - 1.4.8
+    - 1.4.9
+    - 1.4.10
+    - 1.4.11
+    - 1.4.12
+    - 1.4.13
+    - 1.4.14
+    - 1.4.15
+    - 1.4.16
+    - 1.4.17
+    - 1.5.0
+    - 1.5.1
+    - 1.5.2-preview
+    - 1.5.3-preview
+    - 1.5.4-preview
+    - 1.5.5-preview
+    - 1.5.6-preview
+    - 1.5.7
+    - 2.0.0-preview
+    - 2.0.1-preview
+    - 2.0.2-preview
+    - 2.0.3-preview
+    - 2.1.0
+    - 2.1.1
+    - 2.1.2
+    - 2.2.0-preview
+    - 2.2.1-preview
+    - 2.2.2-preview
+    - 2.2.3-preview
+    - 2.2.4-preview
+    recommended: 
+    deprecated: []
+  dependencies:
+  - name: com.unity.scriptablebuildpipeline
+    version: 2.1.3
+  - name: com.unity.modules.assetbundle
+    version: 1.0.0
+  - name: com.unity.modules.unitywebrequest
+    version: 1.0.0
+  - name: com.unity.modules.unitywebrequestassetbundle
+    version: 1.0.0
+  resolvedDependencies:
+  - name: com.unity.scriptablebuildpipeline
+    version: 2.1.3
+  - name: com.unity.modules.assetbundle
+    version: 1.0.0
+  - name: com.unity.modules.unitywebrequest
+    version: 1.0.0
+  - name: com.unity.modules.unitywebrequestassetbundle
+    version: 1.0.0
+  keywords: []
+  registry:
+    id: scoped:project:package.openupm.com
+    name: package.openupm.com
+    url: https://package.openupm.com
+    scopes:
+    - com.tuyoogame.yooasset
+    isDefault: 0
+    capabilities: 0
+    configSource: 4
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 638592916348160000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: git+https://github.com/tuyoogame/YooAsset.git
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+  fingerprint: 
 - packageId: com.unity.collab-proxy@2.5.2
   testable: 0
   isDirectDependency: 1
@@ -2672,6 +2878,65 @@ m_ResolvedPackages:
   isDeprecated: 0
   deprecationMessage: 
   fingerprint: 
+- packageId: com.code-philosophy.hybridclr@file:D:\RippleMinerTycoon\RippleMinerTycoonGames\Packages\com.code-philosophy.hybridclr
+  testable: 1
+  isDirectDependency: 1
+  version: 4.0.15
+  source: 3
+  resolvedPath: D:\RippleMinerTycoon\RippleMinerTycoonGames\Packages\com.code-philosophy.hybridclr
+  assetPath: Packages/com.code-philosophy.hybridclr
+  name: com.code-philosophy.hybridclr
+  displayName: HybridCLR
+  author:
+    name: Code Philosophy
+    email: hybridclr@code-philosophy.com
+    url: https://code-philosophy.com
+  category: Runtime
+  type: 
+  description: HybridCLR is a fully featured, zero-cost, high-performance, low-memory
+    solution for Unity's all-platform native c# hotupdate.
+  status: 0
+  errors: []
+  versions:
+    all: []
+    compatible: []
+    recommended: 
+    deprecated: []
+  dependencies: []
+  resolvedDependencies: []
+  keywords:
+  - HybridCLR
+  - hotupdate
+  - hotfix
+  - focus-creative-games
+  - code-philosophy
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.cn
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: https://hybridclr.doc.code-philosophy.com/#/
+  hasRepository: 0
+  repository:
+    type: 
+    url: 
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+  fingerprint: 
 - packageId: com.unity.modules.subsystems@1.0.0
   testable: 0
   isDirectDependency: 0
@@ -3372,6 +3637,147 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.2.6
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+  fingerprint: 
+- packageId: com.unity.scriptablebuildpipeline@2.1.3
+  testable: 0
+  isDirectDependency: 0
+  version: 2.1.3
+  source: 1
+  resolvedPath: D:\RippleMinerTycoon\RippleMinerTycoonGames\Library\PackageCache\com.unity.scriptablebuildpipeline@2.1.3
+  assetPath: Packages/com.unity.scriptablebuildpipeline
+  name: com.unity.scriptablebuildpipeline
+  displayName: Scriptable Build Pipeline
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: 
+  description: The Scriptable Build Pipeline moves the asset bundle build pipeline
+    to C#.  Use the pre-defined build flows, or create your own using the divided
+    up APIs.  This system improves build time, fixes incremental build, and provides
+    greater flexibility.
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 0.0.5-preview
+    - 0.0.6-preview
+    - 0.0.8-preview
+    - 0.0.9-preview
+    - 0.0.10-preview
+    - 0.0.14-preview
+    - 0.0.15-preview
+    - 0.1.0-preview
+    - 0.2.0-preview
+    - 1.0.1-preview
+    - 1.1.0-preview
+    - 1.1.1-preview
+    - 1.2.1-preview
+    - 1.3.5-preview
+    - 1.4.1-preview
+    - 1.5.0-preview
+    - 1.5.1
+    - 1.5.2
+    - 1.5.4
+    - 1.5.6
+    - 1.5.10
+    - 1.6.3-preview
+    - 1.6.4-preview
+    - 1.6.5-preview
+    - 1.7.2
+    - 1.7.3
+    - 1.8.2
+    - 1.8.4
+    - 1.8.6
+    - 1.9.0
+    - 1.10.0
+    - 1.11.1
+    - 1.11.2
+    - 1.12.0
+    - 1.13.1
+    - 1.14.0
+    - 1.14.1
+    - 1.15.1
+    - 1.15.2
+    - 1.16.1
+    - 1.17.0
+    - 1.18.0
+    - 1.19.0
+    - 1.19.1
+    - 1.19.2
+    - 1.19.3
+    - 1.19.4
+    - 1.19.5
+    - 1.19.6
+    - 1.20.1
+    - 1.20.2
+    - 1.21.0
+    - 1.21.1
+    - 1.21.2
+    - 1.21.3
+    - 1.21.5
+    - 1.21.7
+    - 1.21.8
+    - 1.21.9
+    - 1.21.20
+    - 1.21.21
+    - 1.21.22
+    - 1.21.23
+    - 1.21.24
+    - 1.21.25
+    - 2.0.1
+    - 2.0.2
+    - 2.1.0
+    - 2.1.2
+    - 2.1.3
+    - 2.1.5
+    compatible:
+    - 1.21.24
+    - 1.21.25
+    - 2.0.1
+    - 2.0.2
+    - 2.1.0
+    - 2.1.2
+    - 2.1.3
+    - 2.1.5
+    recommended: 1.21.25
+    deprecated: []
+  dependencies: []
+  resolvedDependencies: []
+  keywords:
+  - build
+  - bundle
+  - bundles
+  - assetbundles
+  - cache
+  - server
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.cn
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 638491314520000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.scriptablebuildpipeline@2.1/manual/index.html
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/Addressables.git
+    revision: ce0566e3aa96bd3b1648c405187751d0306cc931
+    path: 
+  unityLifecycle:
+    version: 1.21.24
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
