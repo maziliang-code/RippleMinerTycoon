@@ -15,5 +15,5 @@ public class condition
 	///参数 
 	public int parameter;
 	///对象 
-	public int object;
+	public int obj;
 }

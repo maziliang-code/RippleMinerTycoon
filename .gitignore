@@ -6,3 +6,9 @@ Logs
 /RippleMinerTycoonGames/Temp/workerlic
 Temp
 /RippleMinerTycoonGames/.vs
+/RippleMinerTycoonGames/HybridCLR.Editor.csproj
+/RippleMinerTycoonGames/HybridCLR.Runtime.csproj
+/RippleMinerTycoonGames/RippleMinerTycoonGames.sln
+/RippleMinerTycoonGames/Assembly-CSharp.csproj
+/RippleMinerTycoonGames/Assembly-CSharp-Editor.csproj
+/RippleMinerTycoonGames/CFGame.csproj
