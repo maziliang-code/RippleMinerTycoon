@@ -18,8 +18,10 @@ public class mine
 	public string unlock;
 	///产出 
 	public string produce;
-	///消耗 
+	///消耗（/1000） 
 	public string expend;
-	///生产时间 
+	///生产时间（/1000） 
 	public int cd;
+	///升阶变化数 
+	public int effectuate;
 }
