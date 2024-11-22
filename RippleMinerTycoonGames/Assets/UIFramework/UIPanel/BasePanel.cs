@@ -14,9 +14,14 @@ public class BasePanel : MonoBehaviour
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
         }
     }
-    public void Close() 
+    public void Close()
     {
         UIManager.Instance.PopPanel();
+    }
+    public virtual void OnClose() 
+    {
+        canvasGroup.alpha = 0;
+        canvasGroup.blocksRaycasts = false;
     }
     public virtual void OnEnter()
     {

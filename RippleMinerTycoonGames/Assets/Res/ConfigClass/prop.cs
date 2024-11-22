@@ -2,12 +2,23 @@ using System.Collections.Generic;
 public class props
 {
 	public List<prop> info;
+	public prop GetInfoToId(int id)
+	{
+		foreach (var v in info)
+		{
+			if (v.id==id) 
+			{
+				return v; 
+			}
+		}
+		return null; 
+	}
 }
 
 [System.Serializable]
 public class prop
 {
-	public long Id;
+	public long id;
 	///备注 
 	public string notes;
 	///名字 

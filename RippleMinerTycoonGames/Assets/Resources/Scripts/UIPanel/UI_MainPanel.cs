@@ -19,12 +19,12 @@ namespace UI.Main
         public TextMeshProUGUI GoldCount { get => Text_GoldCount; }
         [SerializeField] private TextMeshProUGUI Text_CurrencyCount;
         public TextMeshProUGUI CurrencyCount { get => Text_CurrencyCount; }
+        [SerializeField] private Button Btn_MultipleBtn;
+        public Button MultipleBtn { get => Btn_MultipleBtn; }
         [SerializeField] private TextMeshProUGUI Text_MultipleCount;
         public TextMeshProUGUI MultipleCount { get => Text_MultipleCount; }
         [SerializeField] private ScrollRect Scroll_Items;
         public ScrollRect Items { get => Scroll_Items; }
-        [SerializeField] private BasePanel Item_MineralItem;
-        public BasePanel MineralItem { get => Item_MineralItem; }
 
         public void Reset(BasePanel basePanel)
         {
@@ -32,13 +32,12 @@ namespace UI.Main
             Text_DiamondCount = basePanel.transform.Find("Bg/DiamondIcon/Text_DiamondCount").GetComponent<TextMeshProUGUI>();
             Text_GoldCount = basePanel.transform.Find("Bg/GoldIcon/Text_GoldCount").GetComponent<TextMeshProUGUI>();
             Text_CurrencyCount = basePanel.transform.Find("Bg/CurrencyIcon/Text_CurrencyCount").GetComponent<TextMeshProUGUI>();
-            Text_MultipleCount = basePanel.transform.Find("Bg/MultipleBg/Text_MultipleCount").GetComponent<TextMeshProUGUI>();
+            Btn_MultipleBtn = basePanel.transform.Find("Bg/Btn_MultipleBtn").GetComponent<Button>();
+            Text_MultipleCount = basePanel.transform.Find("Bg/Btn_MultipleBtn/Text_MultipleCount").GetComponent<TextMeshProUGUI>();
             Scroll_Items = basePanel.transform.Find("Bg/Scroll_Items").GetComponent<ScrollRect>();
-            Item_MineralItem = basePanel.transform.Find("Bg/Item_MineralItem").GetComponent<BasePanel>();
         }
 
         #endregion
-
 
     }
 
