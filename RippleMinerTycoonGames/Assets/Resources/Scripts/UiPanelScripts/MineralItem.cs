@@ -22,7 +22,6 @@ namespace UI.Main
         private void OnItem()
         {
             IsAddItem = true;
-            PlayerManager.Instance.ChangeGold();
         }
 
         private void OnLock()
