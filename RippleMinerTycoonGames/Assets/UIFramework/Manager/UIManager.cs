@@ -98,7 +98,7 @@ public class UIManager
         {
             //遍历每一个prefab的UIPanelType和Path,若存在List里则更新,若不存在List里则加上
 
-            UIPanelType type = (UIPanelType)Enum.Parse(typeof(UIPanelType), file.Name.Replace(".prefab", ""));
+            UIPanelType type = (UIPanelType)Enum.Parse(typeof(UIPanelType), file.Name.Replace(".prefab", "")); 
             string path = @"UIPanelPrefab/" + file.Name.Replace(".prefab", "");
 
             bool UIPanelExistInList = false;//默认该UIPanel不在现有UIPanelList中
@@ -126,7 +126,19 @@ public class UIManager
 
         AssetDatabase.Refresh();//刷新资源
     }
+    //给出面板类型 返回实例化面板的BasePanel组件()
+    public BasePanel GetItem(UIPanelType type)
+    {
+        string path = panelList.SearchPanelForType(type).UIPanelPath;
+        if (path == null)
+            throw new Exception("找不到该UIPanelType的Prefab");
 
+        if (Resources.Load(path) == null)
+            throw new Exception("找不到该Path的Prefab");
+        GameObject instPanel = GameObject.Instantiate(Resources.Load(path)) as GameObject;
+        instPanel.GetComponent<BasePanel>().OnEnter();
+        return instPanel.GetComponent<BasePanel>();
+    }
 
     //给出面板类型 返回实例化面板的BasePanel组件()
     public BasePanel GetPanel(UIPanelType type)

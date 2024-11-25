@@ -105,13 +105,24 @@ public static class ExcelExporterEditor
             sb.Append($"public class {protoName}s\n");//类名
             sb.Append("{\n");
             sb.Append($"\tpublic List<{protoName}> info;\n");
+            sb.Append($"\tpublic {protoName} GetInfoToId(int id)\n");
+            sb.Append("\t{\n");
+            sb.Append("\t\tforeach (var v in info)\n");
+            sb.Append("\t\t{\n");
+            sb.Append("\t\t\tif (v.id==id) \n");
+            sb.Append("\t\t\t{\n");
+            sb.Append("\t\t\t\treturn v; \n");
+            sb.Append("\t\t\t}\n");
+            sb.Append("\t\t}\n");
+            sb.Append("\t\treturn null; \n");
+            sb.Append("\t}\n");
             sb.Append("}\n\n");
 
 
             sb.Append($"[System.Serializable]\n");
             sb.Append($"public class {protoName}\n");//类名
             sb.Append("{\n");
-            sb.Append("\tpublic long Id;\n");
+            sb.Append("\tpublic long id;\n");
 
             int cellCount = sheet.GetRow(VariableNameLine).LastCellNum;
 
@@ -152,25 +163,23 @@ public static class ExcelExporterEditor
 
         string protoName = Path.GetFileNameWithoutExtension(filePath);
 
-        string exportPath = Path.Combine(exportDir, $"{protoName}.txt");
+        string exportPath = Path.Combine(exportDir, $"{protoName}.json");
 
         using (FileStream txt = new FileStream(exportPath, FileMode.Create))
 
         using (StreamWriter sw = new StreamWriter(txt))
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("{\n");
-            sb.Append($"\"info\":[");
-            sw.WriteLine(sb.ToString());
+            sb.Append($"[");
+            sw.Write(sb.ToString());
             for (int i = 0; i < xssfWorkbook.NumberOfSheets; ++i)
             {
                 ISheet sheet = xssfWorkbook.GetSheetAt(i);
                 ExportSheet(sheet, sw);
             }
             StringBuilder sbs = new StringBuilder();
-            sbs.Append("\t]\n");
-            sbs.Append("}");
-            sw.WriteLine(sbs.ToString());
+            sbs.Append("]");
+            sw.Write(sbs.ToString());
         }
     }
 
@@ -196,7 +205,7 @@ public static class ExcelExporterEditor
         for (int i = DataLine; i <= sheet.LastRowNum; ++i)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("{\n");
+            sb.Append("{");
 
             IRow row = sheet.GetRow(i);
 
@@ -222,21 +231,14 @@ public static class ExcelExporterEditor
                 }
 
                 string fieldName = cellInfos[j].Name;
-
-                if (fieldName == "Id" || fieldName == "_id")
-                {
-                    fieldName = "Id";
-                    //if (string.IsNullOrEmpty(fieldValue)) continue;
-                }
-
                 string fieldType = cellInfos[j].Type;
 
                 if (fieldType == "int" && fieldValue == "") fieldValue = "0";
 
                 sb.Append($"\"{fieldName}\":{Convert(fieldType, fieldValue)}");
             }
-            sb.Append(i == sheet.LastRowNum ? "\n}" : "\n},");
-            sw.WriteLine(sb.ToString());
+            sb.Append(i == sheet.LastRowNum ? "}":"},");
+            sw.Write(sb.ToString());
         }
     }
 

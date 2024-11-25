@@ -2,12 +2,23 @@ using System.Collections.Generic;
 public class develops
 {
 	public List<develop> info;
+	public develop GetInfoToId(int id)
+	{
+		foreach (var v in info)
+		{
+			if (v.id==id) 
+			{
+				return v; 
+			}
+		}
+		return null; 
+	}
 }
 
 [System.Serializable]
 public class develop
 {
-	public long Id;
+	public long id;
 	///备注 
 	public string notes;
 	///名字 
@@ -17,11 +28,11 @@ public class develop
 	///资源 
 	public string resource;
 	///效果 
-	public string effect;
+	public int[] effect;
 	///生效矿产组（-1为全部） 
-	public string mines;
+	public int mines;
 	///消耗类型（道具id） 
-	public string expend;
+	public int expend;
 	///消耗数量 
-	public string expendquantity;
+	public int expendquantity;
 }

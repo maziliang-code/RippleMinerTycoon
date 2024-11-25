@@ -2,12 +2,23 @@ using System.Collections.Generic;
 public class advertisements
 {
 	public List<advertisement> info;
+	public advertisement GetInfoToId(int id)
+	{
+		foreach (var v in info)
+		{
+			if (v.id==id) 
+			{
+				return v; 
+			}
+		}
+		return null; 
+	}
 }
 
 [System.Serializable]
 public class advertisement
 {
-	public long Id;
+	public long id;
 	///备注 
 	public string notes;
 	///名字 
@@ -21,7 +32,7 @@ public class advertisement
 	///类型 
 	public int type;
 	///参数 
-	public string parameter;
+	public int parameter;
 	///冷却时间 
 	public int cd;
 	///每日次数 
