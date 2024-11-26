@@ -11,18 +11,18 @@ enum MultipleType
 }
 public class PlayerManager : Singleton<PlayerManager>
 {
-    public long GoldCount = 0;
-    public long DiamondCount = 0;
-    public long CurrencyCount = 0;
+    public double GoldCount = 0;
+    public double DiamondCount = 0;
+    public double CurrencyCount = 0;
     public int MultipleIndex =1;
     public delegate void EventFinshCurrency();
     public EventFinshCurrency FinshCurrency;
-    public void ChangeGold(long gold)
+    public void ChangeGold(double gold)
     {
         GoldCount += gold;
         FinshCurrency?.Invoke();
     }
-    public void ChangeDiamond(long diamond)
+    public void ChangeDiamond(double diamond)
     {
         DiamondCount += diamond;
         FinshCurrency?.Invoke();

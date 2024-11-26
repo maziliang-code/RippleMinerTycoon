@@ -8,8 +8,6 @@ using LitJson;
 public class UIManager
 {
     readonly string panelPrefabPath = Application.dataPath + @"/Resources/UIPanelPrefab";
-    readonly string jsonPath = Application.dataPath + @"/Json/UIJson.json";
-
     //单例模式
     private static UIManager _instance;
     public static UIManager Instance
@@ -92,39 +90,14 @@ public class UIManager
     {
         DirectoryInfo folder = new DirectoryInfo(panelPrefabPath);
 
-        panelList = ReadJsonFile(jsonPath);//读取现有json里的UIPanelList
+        panelList = ReadJsonFile();//读取现有json里的UIPanelList
 
-        foreach (FileInfo file in folder.GetFiles("*.prefab"))
-        {
-            //遍历每一个prefab的UIPanelType和Path,若存在List里则更新,若不存在List里则加上
+       
 
-            UIPanelType type = (UIPanelType)Enum.Parse(typeof(UIPanelType), file.Name.Replace(".prefab", "")); 
-            string path = @"UIPanelPrefab/" + file.Name.Replace(".prefab", "");
-
-            bool UIPanelExistInList = false;//默认该UIPanel不在现有UIPanelList中
-
-            UIPanel uIPanel = panelList.SearchPanelForType(type);//在List里查找type相同的UIPanel
-
-            if (uIPanel != null)//UIPanel在该List中,更新path值
-            {
-                uIPanel.UIPanelPath = path;
-                UIPanelExistInList = true;
-            }
-
-            if (UIPanelExistInList == false)//UIPanel不在List中,加上该UIPanel
-            {
-                UIPanel panel = new UIPanel
-                {
-                    UIPanelType = type,
-                    UIPanelPath = path
-                };
-                panelList.Add(panel);
-            }
-        }
-
-        WriteJsonFile(jsonPath, panelList);//把更新后的UIPanelList写入Json
-
-        AssetDatabase.Refresh();//刷新资源
+        //WriteJsonFile(jsonPath, panelList);//把更新后的UIPanelList写入Json
+//#if UNITY_EDITOR
+//        AssetDatabase.Refresh();//刷新资源
+//#endif
     }
     //给出面板类型 返回实例化面板的BasePanel组件()
     public BasePanel GetItem(UIPanelType type)
@@ -172,20 +145,15 @@ public class UIManager
     }
 
     //读取指定路径的json文件并返回List<UIPanel>列表
-    public List<UIPanel> ReadJsonFile(string jsonPath)
+    public List<UIPanel> ReadJsonFile()
     {
-        if (!File.Exists(jsonPath))
-            File.WriteAllText(jsonPath, "[]");
-        List<UIPanel> list = JsonMapper.ToObject<List<UIPanel>>(File.ReadAllText(jsonPath));
-
+      string path=  "UIPanelPrefab/";
+        List<UIPanel> list = new List<UIPanel>();
+        list.Add(new UIPanel(UIPanelType.UI_MainPanel, path + "UI_MainPanel"));
+        list.Add(new UIPanel(UIPanelType.Item_MineralItem, path + "Item_MineralItem"));
         return list;
     }
 
-    //把给的List<UIPanel>列表写入指定路径的json文件
-    public void WriteJsonFile(string jsonPath, List<UIPanel> list)
-    {
-        string json = JsonMapper.ToJson(list);
-        File.WriteAllText(jsonPath, json);
-    }
+   
 
 }
