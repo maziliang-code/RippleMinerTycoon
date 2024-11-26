@@ -22,5 +22,5 @@ public class constant
 	///备注 
 	public string notes;
 	///参数 
-	public int[] parameter;
+	public long[] parameter;
 }
