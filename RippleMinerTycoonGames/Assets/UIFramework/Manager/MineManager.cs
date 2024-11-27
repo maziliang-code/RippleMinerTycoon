@@ -26,6 +26,17 @@ public class MineManager :Singleton<MineManager>
             Mines.Add(v.id, mineData);
         }
     }
+    public void SetMinesAgency(List<long> ids) 
+    {
+        foreach (var v in ids) 
+        {
+            if (Mines.ContainsKey(v)) 
+            {
+                Mines[v].IsAgency=true;
+            }
+        }
+        PlayerManager.Instance.FinshCurrency?.Invoke();
+    }
     public MineData GetMineData(long id) 
     {
         return Mines[id];

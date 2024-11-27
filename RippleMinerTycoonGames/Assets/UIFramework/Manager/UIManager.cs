@@ -151,6 +151,11 @@ public class UIManager
         List<UIPanel> list = new List<UIPanel>();
         list.Add(new UIPanel(UIPanelType.UI_MainPanel, path + "UI_MainPanel"));
         list.Add(new UIPanel(UIPanelType.Item_MineralItem, path + "Item_MineralItem"));
+        list.Add(new UIPanel(UIPanelType.Item_DevelopItem, path + "Item_DevelopItem"));
+        list.Add(new UIPanel(UIPanelType.UI_DevelopPanel, path + "UI_DevelopPanel"));
+        list.Add(new UIPanel(UIPanelType.UI_CustodianPanel, path + "UI_CustodianPanel"));
+        list.Add(new UIPanel(UIPanelType.Item_CustodianItem, path + "Item_CustodianItem"));
+        list.Add(new UIPanel(UIPanelType.UI_SellPanel, path + "UI_SellPanel"));
         return list;
     }
 

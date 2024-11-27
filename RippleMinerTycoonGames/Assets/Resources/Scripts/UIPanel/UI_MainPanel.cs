@@ -25,6 +25,12 @@ namespace UI.Main
         public TextMeshProUGUI MultipleCount { get => Text_MultipleCount; }
         [SerializeField] private ScrollRect Scroll_Items;
         public ScrollRect Items { get => Scroll_Items; }
+        [SerializeField] private Button Btn_DevelopPanel;
+        public Button DevelopPanel { get => Btn_DevelopPanel; }
+        [SerializeField] private Button Btn_CustodianPanel;
+        public Button CustodianPanel { get => Btn_CustodianPanel; }
+        [SerializeField] private Button Btn_SellPanel;
+        public Button SellPanel { get => Btn_SellPanel; }
 
         public void Reset(BasePanel basePanel)
         {
@@ -35,6 +41,9 @@ namespace UI.Main
             Btn_MultipleBtn = basePanel.transform.Find("Bg/Btn_MultipleBtn").GetComponent<Button>();
             Text_MultipleCount = basePanel.transform.Find("Bg/Btn_MultipleBtn/Text_MultipleCount").GetComponent<TextMeshProUGUI>();
             Scroll_Items = basePanel.transform.Find("Bg/Scroll_Items").GetComponent<ScrollRect>();
+            Btn_DevelopPanel = basePanel.transform.Find("Bg/Panel/Btn_DevelopPanel").GetComponent<Button>();
+            Btn_CustodianPanel = basePanel.transform.Find("Bg/Panel/Btn_CustodianPanel").GetComponent<Button>();
+            Btn_SellPanel = basePanel.transform.Find("Bg/Panel/Btn_SellPanel").GetComponent<Button>();
         }
 
         #endregion

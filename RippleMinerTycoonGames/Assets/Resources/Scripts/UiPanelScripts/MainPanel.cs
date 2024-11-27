@@ -1,5 +1,10 @@
+using System;
 using System.Collections.Generic;
+using UI.Custodian;
+using UI.Develop;
+using UI.SellPanel;
 using UnityEngine;
+using UnityEngine.UIElements;
 namespace UI.Main
 {
     public class MainPanel : BasePanel
@@ -11,9 +16,27 @@ namespace UI.Main
             base.OnEnter();
             m_Panel.Reset(this);
             m_Panel.MultipleBtn.onClick.AddListener(OnMultiple);
+            m_Panel.DevelopPanel.onClick.AddListener(OnDevelopPanel);
+            m_Panel.CustodianPanel.onClick.AddListener(OnCustodianPanel);
+            m_Panel.SellPanel.onClick.AddListener(OnSellPanel);
             PlayerManager.Instance.FinshCurrency += FinshCurrency;
             MineManager.Instance.FinshMine += FinshMine;
             Init();
+        }
+
+        private void OnSellPanel()
+        {
+            UIManager.Instance.PushPanel(UIPanelType.UI_SellPanel);
+        }
+
+        private void OnCustodianPanel()
+        {
+            UIManager.Instance.PushPanel(UIPanelType.UI_CustodianPanel);
+        }
+
+        private void OnDevelopPanel()
+        {
+            UIManager.Instance.PushPanel(UIPanelType.UI_DevelopPanel);
         }
 
         private void FinshMine(MineData mineData)
@@ -63,7 +86,10 @@ namespace UI.Main
         public override void OnExit()
         {
             base.OnExit();
+            m_Panel.CustodianPanel.onClick.RemoveListener(OnCustodianPanel);
             m_Panel.MultipleBtn.onClick.RemoveListener(OnMultiple);
+            m_Panel.DevelopPanel.onClick.RemoveListener(OnDevelopPanel);
+            m_Panel.SellPanel.onClick.RemoveListener(OnSellPanel);
             PlayerManager.Instance.FinshCurrency -= FinshCurrency;
             MineManager.Instance.FinshMine -= FinshMine;
         }

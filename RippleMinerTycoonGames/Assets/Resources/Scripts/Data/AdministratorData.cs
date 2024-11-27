@@ -6,4 +6,5 @@ public class AdministratorData
 {
     public long id;
     public bool IsLock;
+    public advertisement advertisement;
 }

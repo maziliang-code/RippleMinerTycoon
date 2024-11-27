@@ -30,7 +30,7 @@ public class manager
 	///效果 
 	public int[] effect;
 	///生效矿产组（-1为全部） 
-	public int mines;
+	public int[] mines;
 	///消耗类型（道具id） 
 	public int expend;
 	///消耗数量 

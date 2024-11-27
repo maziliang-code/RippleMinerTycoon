@@ -5,6 +5,8 @@ using UnityEngine;
 public class DevelopManager :Singleton<DevelopManager>
 {
     Dictionary<long, DevelopData> Develops = new Dictionary<long, DevelopData>();
+    public delegate void EventFinshDevelopItem();
+    public EventFinshDevelopItem FinshDevelopItem;
     public void Init() 
     {
         foreach (var v in DispositionManager.Instance.Develops.info)
@@ -15,6 +17,27 @@ public class DevelopManager :Singleton<DevelopManager>
             developData.develop = v;
             Develops.Add(developData.id, developData);
         }
+    }
+    List<DevelopData> DevelopDatas = new List<DevelopData>();
+    public void SetIsUnlock(long id) 
+    {
+        if (Develops.TryGetValue(id,out DevelopData developData)) 
+        {
+            developData.IsLock = true;
+        }
+        FinshDevelopItem?.Invoke();
+    }
+    public List<DevelopData> GetDevelopToType(int type) 
+    {
+        DevelopDatas.Clear();
+        foreach (var v in Develops.Values) 
+        {
+            if (v.IsLock==false&&v.develop.expend==type) 
+            {
+                DevelopDatas.Add(v);
+            }
+        }
+        return DevelopDatas;
     }
     public long GetMinesAddLevel()
     {

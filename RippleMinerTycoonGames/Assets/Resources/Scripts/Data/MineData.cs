@@ -23,8 +23,9 @@ public class MineData
     public double StartTimestamp =0;
     public bool IsAddItem = false;
     private mine m_mine;
-
+    public bool IsAgency =false;
     public mine Mine { get => m_mine;  }
+
     public void SetAddLevel(long level) 
     {
         m_Level += level;
