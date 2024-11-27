@@ -6,6 +6,8 @@ using UnityEngine;
 public class MineManager :Singleton<MineManager>
 {
     Dictionary<long, MineData> Mines = new Dictionary<long, MineData>();
+    public delegate void EventFinshMine(MineData mineData);
+    public EventFinshMine FinshMine;
     public void Init()
     {
         foreach (var v in DispositionManager.Instance.Mines.info)
@@ -37,5 +39,12 @@ public class MineManager :Singleton<MineManager>
         Mines.TryGetValue(id, out MineData  mineData);
         mineData.IsLock = true;
         PlayerManager.Instance.FinshCurrency?.Invoke();
+    }
+    public void SetLevel(long id, long level)
+    {
+        Mines.TryGetValue(id, out MineData mineData);
+        PlayerManager.Instance.ChangeGold(-mineData.GetExpend(level));
+        mineData.SetAddLevel(level);
+        FinshMine?.Invoke(mineData);
     }
 }

@@ -1,11 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using NPOI.POIFS.Properties;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static PlayerManager;
-using static UnityEditor.Progress;
 namespace UI.Main
 {
     public class MainPanel : BasePanel
@@ -18,8 +12,13 @@ namespace UI.Main
             m_Panel.Reset(this);
             m_Panel.MultipleBtn.onClick.AddListener(OnMultiple);
             PlayerManager.Instance.FinshCurrency += FinshCurrency;
+            MineManager.Instance.FinshMine += FinshMine;
             Init();
+        }
 
+        private void FinshMine(MineData mineData)
+        {
+            FinshItems();
         }
 
         private void OnMultiple()
@@ -35,9 +34,9 @@ namespace UI.Main
         }
         public void FinshCurrency() 
         {
-            m_Panel.GoldCount.text = PlayerManager.Instance.GoldCount.ToString();
-            m_Panel.DiamondCount.text = PlayerManager.Instance.DiamondCount.ToString();
-            m_Panel.CurrencyCount.text = PlayerManager.Instance.CurrencyCount.ToString();
+            m_Panel.GoldCount.text = string.Format("{0:0.###}", PlayerManager.Instance.GoldCount);
+            m_Panel.DiamondCount.text = string.Format("{0:0.###}", PlayerManager.Instance.DiamondCount);
+            m_Panel.CurrencyCount.text = string.Format("{0:0.###}", PlayerManager.Instance.CurrencyCount);
         }
         public void FinshItems() 
         {
@@ -66,6 +65,7 @@ namespace UI.Main
             base.OnExit();
             m_Panel.MultipleBtn.onClick.RemoveListener(OnMultiple);
             PlayerManager.Instance.FinshCurrency -= FinshCurrency;
+            MineManager.Instance.FinshMine -= FinshMine;
         }
 
         public override void OnPause()
