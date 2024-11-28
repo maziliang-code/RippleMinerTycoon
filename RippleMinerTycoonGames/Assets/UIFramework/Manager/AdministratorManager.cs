@@ -12,6 +12,7 @@ public class AdministratorManager : Singleton<AdministratorManager>
         {
             AdministratorData administrator = new AdministratorData();
             administrator.id = v.id;
+            administrator.advertisement = v;
             Administrators.Add(v.id, administrator); 
         }
     }
@@ -19,6 +20,7 @@ public class AdministratorManager : Singleton<AdministratorManager>
     {
         return Administrators.Values.ToList();
     }
+
     public void SetLock(long id) 
     {
         Administrators.TryGetValue(id,out AdministratorData administrator);

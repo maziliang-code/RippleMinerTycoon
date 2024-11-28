@@ -37,6 +37,6 @@ public class mine
 	public int effectuate;
 	///升阶（公式为累加，最后一位循环） 
 	public int[] levelup;
-	///升阶效果倍率（公式为累加，最后一位循环） 
+	///升阶效果倍率（/1000，公式为累加，最后一位循环） 
 	public int[] levelpar;
 }

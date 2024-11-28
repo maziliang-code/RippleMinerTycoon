@@ -58,6 +58,10 @@ namespace UI.Main
 
         private void OnItem()
         {
+            if (m_MineData.IsAgency)
+            {
+                return;
+            }
             if (!m_MineData.IsAddItem) 
             {
                 m_MineData.StartTimestamp = 0;
@@ -103,6 +107,23 @@ namespace UI.Main
         }
         private void Update()
         {
+            if (!m_MineData.IsLock)
+            {
+                return;
+            }
+            if (m_MineData.IsAgency)
+            {
+                m_MineData.StartTimestamp += Time.deltaTime;
+                float fillAmount = (float)(m_MineData.StartTimestamp / (m_MineData.GetCD() / 1000.00f));
+                m_Item.FillIcon.fillAmount = fillAmount;
+                if (fillAmount >= 1)
+                {
+                    PlayerManager.Instance.ChangeGold(m_MineData.GetProduce());
+                    m_Item.FillIcon.fillAmount = 0;
+                    m_MineData.StartTimestamp = 0;
+                }
+                return;
+            }
             if (m_MineData.IsAddItem)
             {
                 m_MineData.StartTimestamp += Time.deltaTime;
