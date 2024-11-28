@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class MineManager :Singleton<MineManager>
 {
     Dictionary<long, MineData> Mines = new Dictionary<long, MineData>();
-    public delegate void EventFinshMine(MineData mineData);
+    public delegate void EventFinshMine();
     public EventFinshMine FinshMine;
     public void Init()
     {
@@ -28,6 +29,10 @@ public class MineManager :Singleton<MineManager>
     }
     public void SetMinesAgency(List<long> ids) 
     {
+        foreach (var v in Mines.Values) 
+        {
+            v.IsAgency = false;
+        }
         foreach (var v in ids) 
         {
             if (Mines.ContainsKey(v)) 
@@ -54,8 +59,31 @@ public class MineManager :Singleton<MineManager>
     public void SetLevel(long id, long level)
     {
         Mines.TryGetValue(id, out MineData mineData);
-        PlayerManager.Instance.ChangeGold(-mineData.GetExpend(level));
+        PlayerManager.Instance.RemoveGold(mineData.GetExpend(level));
         mineData.SetAddLevel(level);
-        FinshMine?.Invoke(mineData);
+        FinshMine?.Invoke();
     }
+    public void InitMines() 
+    {
+        foreach (var v in DispositionManager.Instance.Mines.info)
+        {
+            MineData mineData = new MineData();
+            mineData.Id = v.id;
+            mineData.SetMine(v);
+            if (v.unlock==0) 
+            {
+                mineData.IsLock = true;
+            }
+            else 
+            {
+                mineData.IsLock = false;
+            }
+            if (Mines.ContainsKey(v.id)) 
+            {
+                Mines[v.id] = mineData;
+            }
+        }
+        FinshMine?.Invoke();
+    }
+
 }

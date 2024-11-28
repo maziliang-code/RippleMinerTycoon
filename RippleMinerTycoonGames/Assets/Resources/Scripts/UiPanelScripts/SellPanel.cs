@@ -33,6 +33,7 @@ namespace UI.SellPanel
             base.OnExit();
             m_Panel.BuyBtn.onClick.RemoveListener(OnBuyBtn);
             m_Panel.ClaimBtn.onClick.RemoveListener(OnClaimBtn);
+            m_Panel.CloseBtn.onClick.RemoveListener(Close);
         }
 
 

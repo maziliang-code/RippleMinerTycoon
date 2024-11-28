@@ -9,6 +9,7 @@ public class GameRoot : MonoBehaviour
     }
     void Start ()
     {
+        ComputeStringFloat.DividResaultPrecision = 3;
         CustodianManager.Instance.Init();
         AdministratorManager.Instance.Init();
         DevelopManager.Instance.Init();

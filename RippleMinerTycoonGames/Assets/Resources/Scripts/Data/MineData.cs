@@ -1,11 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Serialization;
-using NPOI.SS.Formula.Functions;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MineData
@@ -20,7 +13,7 @@ public class MineData
     }
     public long Id;
     public bool IsLock;
-    public double StartTimestamp =0;
+    public float StartTimestamp =0;
     public bool IsAddItem = false;
     private mine m_mine;
     public bool IsAgency =false;
@@ -30,11 +23,11 @@ public class MineData
     {
         m_Level += level;
     }
-    public double Getlevelpar() 
+    public ComputeStringFloat Getlevelpar() 
     {
         int effectuate = m_mine.effectuate;
         int[] levelpar = m_mine.levelpar;
-        double maxLevelPar = 0;
+        ComputeStringFloat maxLevelPar = 0;
         int equalOrderIndex = GetEqualOrderIndex();
         for (int i = effectuate; i < equalOrderIndex; i++)
         {
@@ -75,7 +68,7 @@ public class MineData
     public float GetCD()
     {
         float effectuate = m_mine.effectuate;
-       float cd= m_mine.cd;
+        float cd= m_mine.cd;
         int equalOrderIndex = GetEqualOrderIndex();
         for (int i=1;i< equalOrderIndex;i++)
         {
@@ -86,10 +79,10 @@ public class MineData
         }
         return cd;
     }
-    public double GetProduce()
+    public ComputeStringFloat GetProduce()
     {
         long[] produce = m_mine.produce;
-        return  DoubleCeil((produce[0] * Level + produce[1]) * Getlevelpar());
+        return (ComputeStringFloat)(produce[0] * Level + produce[1]) * Getlevelpar();
     }
     public long GetEqualOrder() 
     {
@@ -110,23 +103,19 @@ public class MineData
         }
         return maxNumber;
     }
-    public double GetExpend(long lvCount) 
+    public ComputeStringFloat GetExpend(long lvCount) 
     {
        long[] coefficients= m_mine.expend;
         long level = Level+1;
-        double expends = 0;
+        ComputeStringFloat expends = 0;
         for (int i=0;i< lvCount;i++) 
         {
-            expends+= (coefficients[0] / 1000.000f) * Math.Pow(level - 1, (coefficients[2] / 1000.000f*Math.Pow(level - 1, coefficients[4] / 1000.000f) + (coefficients[3] / 1000.000f))) + coefficients[1] / 1000.000f;
-            level += 1;
-            expends = DoubleCeil(expends);
+            expends+=new ComputeStringFloat(((coefficients[0] / 1000.00f) * Math.Pow(level - 1, (coefficients[2] / 1000.00f*Math.Pow(level - 1, coefficients[4] / 1000.00f) + (coefficients[3] / 1000.00f))) + coefficients[1] / 1000.00f).ToString());
+           
+           level += 1;
         }
       
         return expends;
-    }
-    public static double DoubleCeil(double value)
-    {
-        return (double)Mathf.CeilToInt((float)value*1000)/1000.000f;
     }
     public long GetLevelToExpend() 
     {
@@ -134,13 +123,12 @@ public class MineData
         long[] coefficients = m_mine.expend;
         long level = Level + 1;
         long addlevel = 0;
-        double expends = 0;
+        ComputeStringFloat expends = 0;
         while (PlayerManager.Instance.GoldCount>= expends) 
         {
-            expends += (coefficients[0] / 1000.000f) * Math.Pow(level - 1, (coefficients[2] / 1000.000f * Math.Pow(level - 1, coefficients[4] / 1000.000f) + (coefficients[3] / 1000.000f ))) + coefficients[1] / 1000.000f;
+            expends += (ComputeStringFloat)((coefficients[0] / 1000.000f) * Math.Pow(level - 1, (coefficients[2] / 1000.000f * Math.Pow(level - 1, coefficients[4] / 1000.000f) + (coefficients[3] / 1000.000f ))) + coefficients[1] / 1000.000f);
             level += 1;
             addlevel += 1;
-            expends = DoubleCeil(expends);
         }
         return addlevel - 1;
     }

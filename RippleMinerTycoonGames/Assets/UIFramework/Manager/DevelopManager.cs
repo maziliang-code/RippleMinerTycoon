@@ -27,6 +27,17 @@ public class DevelopManager :Singleton<DevelopManager>
         }
         FinshDevelopItem?.Invoke();
     }
+    public void InitDevelopToGold() 
+    {
+        foreach (var v in Develops.Values)
+        {
+            if ( v.develop.expend == 1)
+            {
+                v.IsLock = false;
+            }
+        }
+        FinshDevelopItem?.Invoke();
+    }
     public List<DevelopData> GetDevelopToType(int type) 
     {
         DevelopDatas.Clear();

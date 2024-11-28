@@ -70,9 +70,9 @@ namespace UI.Main
         }
         private void OnLock()
         {
-            if (PlayerManager.Instance.GoldCount>= m_MineData.Mine.unlock) 
+            if (PlayerManager.Instance.GoldCount>= (ComputeStringFloat)m_MineData.Mine.unlock) 
             {
-                PlayerManager.Instance.ChangeGold(-m_MineData.Mine.unlock);
+                PlayerManager.Instance.RemoveGold(m_MineData.Mine.unlock);
                 MineManager.Instance.SetLock(m_MineData.Id);
                 Init(MineManager.Instance.GetMineData(m_MineData.Id));
             }
@@ -98,9 +98,9 @@ namespace UI.Main
             m_Item.LvUpText.text = PlayerManager.Instance.GetLvUpText();
             switch (PlayerManager.Instance.MultipleIndex)
             {
-                case 1: m_Item.MultipleText.text = mineData.GetExpend(1).ToString("#0.000") ; break;
-                case 2: m_Item.MultipleText.text = mineData.GetExpend(10).ToString("#0.000"); break;
-                case 3: m_Item.MultipleText.text = mineData.GetExpend(100).ToString("#0.000"); break;
+                case 1: m_Item.MultipleText.text = mineData.GetExpend(1) ; break;
+                case 2: m_Item.MultipleText.text = mineData.GetExpend(10); break;
+                case 3: m_Item.MultipleText.text = mineData.GetExpend(100); break;
                 case 4: m_Item.MultipleText.text = "MAX"; break;
                 case 5:m_Item.MultipleText.text = "NEXT"; break;
             }
