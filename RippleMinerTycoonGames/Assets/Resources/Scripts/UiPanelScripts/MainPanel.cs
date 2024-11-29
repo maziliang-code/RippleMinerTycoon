@@ -57,9 +57,9 @@ namespace UI.Main
         }
         public void FinshCurrency() 
         {
-            m_Panel.GoldCount.text = string.Format("{0:0.###}", PlayerManager.Instance.GoldCount);
-            m_Panel.DiamondCount.text = string.Format("{0:0.###}", PlayerManager.Instance.DiamondCount);
-            m_Panel.CurrencyCount.text = string.Format("{0:0.###}", PlayerManager.Instance.CurrencyCount);
+            m_Panel.GoldCount.text = PlayerManager.Instance.GoldCount.ToFigureString();
+            m_Panel.DiamondCount.text = PlayerManager.Instance.DiamondCount.ToString();
+            m_Panel.CurrencyCount.text = PlayerManager.Instance.CurrencyCount.ToString();
         }
         public void FinshItems() 
         {

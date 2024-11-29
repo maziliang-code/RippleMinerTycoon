@@ -98,9 +98,9 @@ namespace UI.Main
             m_Item.LvUpText.text = PlayerManager.Instance.GetLvUpText();
             switch (PlayerManager.Instance.MultipleIndex)
             {
-                case 1: m_Item.MultipleText.text = mineData.GetExpend(1) ; break;
-                case 2: m_Item.MultipleText.text = mineData.GetExpend(10); break;
-                case 3: m_Item.MultipleText.text = mineData.GetExpend(100); break;
+                case 1: m_Item.MultipleText.text = mineData.GetExpend(1).ToString(); break;
+                case 2: m_Item.MultipleText.text = mineData.GetExpend(10).ToString(); break;
+                case 3: m_Item.MultipleText.text = mineData.GetExpend(100).ToString(); break;
                 case 4: m_Item.MultipleText.text = "MAX"; break;
                 case 5:m_Item.MultipleText.text = "NEXT"; break;
             }

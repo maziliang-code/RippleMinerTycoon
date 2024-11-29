@@ -11,7 +11,7 @@ enum MultipleType
 }
 public class PlayerManager : Singleton<PlayerManager>
 {
-    public ComputeStringFloat GoldCount = "300000000000000";
+    public ComputeStringFloat GoldCount = "311111111";
     public ComputeStringFloat DiamondCount = 0;
     public ComputeStringFloat CurrencyCount = 0;
     public int MultipleIndex =1;

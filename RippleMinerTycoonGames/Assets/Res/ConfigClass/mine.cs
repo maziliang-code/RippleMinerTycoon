@@ -25,11 +25,11 @@ public class mine
 	public int name;
 	///资源 
 	public string resource;
-	///解锁消耗 
+	///解锁消耗（消耗道具id：1） 
 	public long unlock;
-	///产出（公式：y=ax+b;参数：a，b；x为等级） 
+	///产出（公式：y=ax+b;参数：a，b；x为等级；产出道具id：1） 
 	public long[] produce;
-	///消耗（/1000；公式：y=a(x-1)^（c（x-1）^e+d）+b；参数：a，b，c，d，e；x为等级） 
+	///消耗（/1000；公式：y=a(x-1)^（c（x-1）^e+d）+b；参数：a，b，c，d，e；x为等级；消耗道具id：1） 
 	public long[] expend;
 	///生产时间（/1000） 
 	public int cd;

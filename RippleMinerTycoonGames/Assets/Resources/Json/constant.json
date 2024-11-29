@@ -1,1 +1,1 @@
-[{"id":1,"notes":"主线初始矿产id","parameter":[101]},{"id":2,"notes":"销售游戏内容CD（秒）","parameter":[1200]},{"id":3,"notes":"销售游戏内容公式（销售获得钻石=矿1产出/CD/常量+矿2产出/CD/常量+……，参数：常量）","parameter":[30000000]},{"id":4,"notes":"","parameter":[]}]
+[{"id":1,"notes":"主线初始矿产id","parameter":[101]},{"id":2,"notes":"销售游戏内容CD（秒）","parameter":[1800]},{"id":3,"notes":"销售游戏内容公式（销售获得钻石=矿1产出/CD/常量+矿2产出/CD/常量+……，参数：常量）","parameter":[30000000]},{"id":4,"notes":"销售资产金矿消耗","parameter":[20]}]
