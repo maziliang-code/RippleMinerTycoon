@@ -34,5 +34,5 @@ public class manager
 	///消耗类型（道具id） 
 	public int expend;
 	///消耗数量 
-	public long expendquantity;
+	public string expendquantity;
 }

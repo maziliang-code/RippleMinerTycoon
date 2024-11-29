@@ -1,6 +1,7 @@
 using System;
+using UnityEngine.UI;
 
-    public class ComputeStringInt
+public class ComputeStringInt
     {
         public string Body = "0";
 
@@ -468,7 +469,6 @@ using System;
         {
             return this.Body;
         }
-
         public ComputeStringFloat ToComputeStringFloat()
         {
             return new ComputeStringFloat(this.Body);

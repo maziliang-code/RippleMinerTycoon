@@ -23,7 +23,7 @@ namespace UI.Custodian
         {
             if (m_CustodianData.Custodian.expendquantity<=PlayerManager.Instance.GetCurrencyCount(m_CustodianData.Custodian.expend)) 
             {
-                PlayerManager.Instance.SetCurrencyCount(m_CustodianData.Custodian.expend, -m_CustodianData.Custodian.expendquantity);
+                PlayerManager.Instance.SetCurrencyCount(m_CustodianData.Custodian.expend, (ComputeStringFloat)("-" + m_CustodianData.Custodian.expendquantity) );
                 CustodianManager.Instance.SetIsUnlock(m_CustodianData.id);
             }
         }

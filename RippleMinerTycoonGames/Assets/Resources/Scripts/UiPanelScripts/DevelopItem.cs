@@ -20,9 +20,9 @@ namespace UI.Develop
 
         private void OnBuyDevelop()
         {
-            if (m_DevelopData.develop.expendquantity<=PlayerManager.Instance.GetCurrencyCount(m_DevelopData.develop.expend)) 
+            if ((ComputeStringFloat)m_DevelopData.develop.expendquantity<=PlayerManager.Instance.GetCurrencyCount(m_DevelopData.develop.expend)) 
             {
-                PlayerManager.Instance.SetCurrencyCount(m_DevelopData.develop.expend, -m_DevelopData.develop.expendquantity);
+                PlayerManager.Instance.SetCurrencyCount(m_DevelopData.develop.expend, (ComputeStringFloat)("-"+m_DevelopData.develop.expendquantity));
                 DevelopManager.Instance.SetIsUnlock(m_DevelopData.id);
             }
         }
@@ -31,7 +31,7 @@ namespace UI.Develop
         {
             m_DevelopData = develop;
             m_Item.DevelName.text = DispositionManager.Instance.Languages.GetInfoToId(m_DevelopData.develop.name).language1;
-            m_Item.CurrencyCount.text = m_DevelopData.develop.expendquantity.ToString();
+            m_Item.CurrencyCount.text = m_DevelopData.develop.expendquantity;
         }
         private void Update()
         {
