@@ -39,7 +39,7 @@ namespace UI.Main
             UIManager.Instance.PushPanel(UIPanelType.UI_DevelopPanel);
         }
 
-        private void FinshMine(MineData mineData)
+        private void FinshMine()
         {
             FinshItems();
         }

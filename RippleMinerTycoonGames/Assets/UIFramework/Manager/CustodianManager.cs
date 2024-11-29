@@ -19,6 +19,18 @@ public class CustodianManager : Singleton<CustodianManager>
         }
     }
     List<CustodianData> CustodianDatas = new List<CustodianData>();
+    public void InitCustodians() 
+    {
+        foreach (var v in Custodians.Values) 
+        {
+            if (v.Custodian.expend==1) 
+            {
+                v.IsLock = false;
+            }
+        }
+        SetAgencys();
+        FinshCustodianItem?.Invoke();
+    }
     public void SetIsUnlock(long id)
     {
         if (Custodians.TryGetValue(id, out CustodianData custodianData))
