@@ -15,6 +15,5 @@ public class GameRoot : MonoBehaviour
         DevelopManager.Instance.Init();
         MineManager.Instance.Init();
         UIManager.Instance.PushPanel(UIPanelType.UI_MainPanel);
-
     }
 }

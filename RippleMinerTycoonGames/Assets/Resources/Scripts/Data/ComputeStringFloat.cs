@@ -217,9 +217,17 @@ public class ComputeStringFloat : ComputeStringInt
         if (startIndex2 >= 0)
             numStr2 = numStr2.Remove(startIndex2, 1);
         int length1 = left.FloatPart.Length;
+        if(left.FloatPart=="0"&& length1==1)
+        {
+            length1 = 0;
+        }
         if (right.FloatPart.Length > length1)
         {
             length1 = right.FloatPart.Length;
+            if (right.FloatPart == "0" && length1 == 1)
+            {
+                length1 = 0;
+            }
             if (left.FloatPart == "0")
             {
                 for (int length2 = left.FloatPart.Length; length2 <= length1; ++length2)
@@ -457,7 +465,7 @@ public class ComputeStringFloat : ComputeStringInt
         return this.Body;
     }
     List<language> FigureStrs = new List<language>();
-    public string ToFigureString()
+    public string ToFigureString(bool IsLine=false)
     {
         if (FigureStrs.Count == 0)
         {
@@ -502,16 +510,43 @@ public class ComputeStringFloat : ComputeStringInt
         Figure = strss[0];
         if (strss.Length>=2)
         {
-            Figure = strss[0] + "." + strss[1];
+            bool isAdd = false;
+            Figure = strss[0];
+            string strAdd = "";
+            char[] charss= strss[1].ToCharArray();
+            for (int i = charss.Length-1; i>=0;i--)
+            {
+                if (!isAdd)
+                {
+                    if (!charss[i].Equals('0'))
+                    {
+                        Figure = Figure + ".";
+                        isAdd = true;
+                    }
+                }
+                    
+                if (isAdd) 
+                {
+                    strAdd = charss[i] + strAdd;
+                }
+            }
+            Figure = Figure + strAdd;
         }
 
         if (index>1)
         {
-            return Figure+FigureStrs[index-2].language2;
+            if (IsLine) 
+            {
+                return Figure  + "<size=25>" + FigureStrs[index - 2].language2 + "</size>";
+            }
+            else
+            {
+                return Figure + "\n" + "<size=25>" + FigureStrs[index - 2].language2 + "</size>";
+            }
         }
         else
         {
-            return Figure;
+            return this.Body;
         }
     }
 

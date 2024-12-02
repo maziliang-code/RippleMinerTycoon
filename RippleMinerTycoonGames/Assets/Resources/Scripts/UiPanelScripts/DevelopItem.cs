@@ -22,16 +22,20 @@ namespace UI.Develop
         {
             if ((ComputeStringFloat)m_DevelopData.develop.expendquantity<=PlayerManager.Instance.GetCurrencyCount(m_DevelopData.develop.expend)) 
             {
-                PlayerManager.Instance.SetCurrencyCount(m_DevelopData.develop.expend, (ComputeStringFloat)("-"+m_DevelopData.develop.expendquantity));
                 DevelopManager.Instance.SetIsUnlock(m_DevelopData.id);
+                PlayerManager.Instance.SetCurrencyCount(m_DevelopData.develop.expend, (ComputeStringFloat)(m_DevelopData.develop.expendquantity));              
             }
         }
 
         public void Init(DevelopData develop) 
         {
             m_DevelopData = develop;
+            Sprite sprite = Resources.Load<Sprite>("Sprite/MineItem/" + m_DevelopData.develop.resource);
+            m_Item.DevelImage.sprite = sprite;
+            Sprite sprites = Resources.Load<Sprite>("Sprite/Common/" + DispositionManager.Instance.Props.GetInfoToId(m_DevelopData.develop.expend).icon);
+            m_Item.CurrencyImage.sprite = sprites;
             m_Item.DevelName.text = DispositionManager.Instance.Languages.GetInfoToId(m_DevelopData.develop.name).language1;
-            m_Item.CurrencyCount.text = m_DevelopData.develop.expendquantity;
+            m_Item.CurrencyCount.text =((ComputeStringFloat) m_DevelopData.develop.expendquantity).ToFigureString(true);
         }
         private void Update()
         {

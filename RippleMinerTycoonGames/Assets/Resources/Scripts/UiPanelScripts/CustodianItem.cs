@@ -21,9 +21,9 @@ namespace UI.Custodian
 
         private void OnBuyCustodian()
         {
-            if (m_CustodianData.Custodian.expendquantity<=PlayerManager.Instance.GetCurrencyCount(m_CustodianData.Custodian.expend)) 
+            if (((ComputeStringFloat)m_CustodianData.Custodian.expendquantity) <= PlayerManager.Instance.GetCurrencyCount(m_CustodianData.Custodian.expend)) 
             {
-                PlayerManager.Instance.SetCurrencyCount(m_CustodianData.Custodian.expend, (ComputeStringFloat)("-" + m_CustodianData.Custodian.expendquantity) );
+                PlayerManager.Instance.SetCurrencyCount(m_CustodianData.Custodian.expend, ((ComputeStringFloat)m_CustodianData.Custodian.expendquantity));
                 CustodianManager.Instance.SetIsUnlock(m_CustodianData.id);
             }
         }
@@ -31,8 +31,12 @@ namespace UI.Custodian
         public void Init(CustodianData custodian) 
         {
             m_CustodianData = custodian;
+            Sprite sprite= Resources.Load<Sprite>("Sprite/CustodianItem/"+custodian.Custodian.resource);
+            m_Item.DevelImage.sprite = sprite;
+            Sprite sprites = Resources.Load<Sprite>("Sprite/Common/" + DispositionManager.Instance.Props.GetInfoToId(custodian.Custodian.expend).icon);
+            m_Item.CurrencyImage.sprite = sprites;
             m_Item.DevelName.text = DispositionManager.Instance.Languages.GetInfoToId(m_CustodianData.Custodian.name).language1;
-            m_Item.CurrencyCount.text = m_CustodianData.Custodian.expendquantity.ToString();
+            m_Item.CurrencyCount.text = ((ComputeStringFloat)m_CustodianData.Custodian.expendquantity).ToFigureString(true) ;
         }
         private void Update()
         {

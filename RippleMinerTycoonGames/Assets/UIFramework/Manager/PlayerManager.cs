@@ -11,7 +11,7 @@ enum MultipleType
 }
 public class PlayerManager : Singleton<PlayerManager>
 {
-    public ComputeStringFloat GoldCount = "311111111";
+    public ComputeStringFloat GoldCount = 0;
     public ComputeStringFloat DiamondCount = 0;
     public ComputeStringFloat CurrencyCount = 0;
     public int MultipleIndex =1;
@@ -23,9 +23,9 @@ public class PlayerManager : Singleton<PlayerManager>
         {
             case 1:
                 return GoldCount;
-            case 2:
+            case 4:
                 return DiamondCount;
-            case 3:
+            case 5:
                 return CurrencyCount;
         }
         return 0;
@@ -35,27 +35,27 @@ public class PlayerManager : Singleton<PlayerManager>
         switch (type)
         {
             case 1:
-                ChangeGold(currency);break;
+                RemoveGold(currency);break;
             case 2:
-                ChangeDiamond(currency); break;
+                RemoveDiamond(currency); break;
             case 3:
-                ChangeCurrency(currency); break;
+                RemoveCurrency(currency); break;
         }
         FinshCurrency?.Invoke();
     }
     public void RemoveGold(ComputeStringFloat gold)
     {
-        GoldCount=GoldCount -gold;
+        GoldCount=GoldCount-gold;
         FinshCurrency?.Invoke();
     }
     public void RemoveCurrency(ComputeStringFloat currency)
     {
-        CurrencyCount= CurrencyCount -currency;
+        CurrencyCount= CurrencyCount-currency;
         FinshCurrency?.Invoke();
     }
     public void RemoveDiamond(ComputeStringFloat diamond)
     {
-        DiamondCount= DiamondCount - diamond;
+        DiamondCount= DiamondCount-diamond;
         FinshCurrency?.Invoke();
     }
     public void ChangeGold(ComputeStringFloat gold)
@@ -88,14 +88,14 @@ public class PlayerManager : Singleton<PlayerManager>
             case 1: return "X" + (int)MultipleType.Multiple_1;
             case 2: return "X" + (int)MultipleType.Multiple_2;
             case 3: return "X" + (int)MultipleType.Multiple_3; 
-            case 4: return "满级成长";
-            case 5: return "升级到下一等阶"; 
+            case 4: return "MAX";
+            case 5: return "NEXT"; 
         }
         return "";
     }
     public void SellAllMines(bool IsStart=false) 
     {
-        long sellConstant= DispositionManager.Instance.Constants.GetInfoToId(3).parameter[0];
+        ComputeStringFloat sellConstant = (ComputeStringFloat)DispositionManager.Instance.Constants.GetInfoToId(3).parameter[0];
         ComputeStringFloat Sellcount = 0;
         foreach (var v in MineManager.Instance.GetAllMineDatas()) 
         {

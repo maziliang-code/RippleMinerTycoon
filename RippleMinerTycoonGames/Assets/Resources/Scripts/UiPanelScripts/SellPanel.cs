@@ -21,6 +21,7 @@ namespace UI.SellPanel
         private void OnClaimBtn()
         {
             PlayerManager.Instance.SellAllMines();
+            Close();
         }
 
         private void OnBuyBtn()

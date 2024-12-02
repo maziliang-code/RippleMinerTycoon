@@ -251,7 +251,7 @@ public static class ExcelExporterEditor
             case "long[]":
                 return $"[{value}]";
             case "string[]":
-                return $"[{value}]";
+                return $"[{"\""+value+"\""}]";
             case "int":
             case "int32":
             case "int64":

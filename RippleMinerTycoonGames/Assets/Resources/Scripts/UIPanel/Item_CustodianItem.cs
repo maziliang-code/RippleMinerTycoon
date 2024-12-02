@@ -9,8 +9,9 @@ namespace UI.Develop
 {
     public class Item_CustodianItem
     {
-
         #region ui component
+        [SerializeField] private Image Img_DevelImage;
+        public Image DevelImage { get => Img_DevelImage; }
         [SerializeField] private TextMeshProUGUI Text_DevelName;
         public TextMeshProUGUI DevelName { get => Text_DevelName; }
         [SerializeField] private TextMeshProUGUI Text_CurrencyCount;
@@ -24,6 +25,7 @@ namespace UI.Develop
 
         public void Reset(BasePanel basePanel)
         {
+            Img_DevelImage = basePanel.transform.Find("Img_DevelImage").GetComponent<Image>();
             Text_DevelName = basePanel.transform.Find("Text_DevelName").GetComponent<TextMeshProUGUI>();
             Text_CurrencyCount = basePanel.transform.Find("Text_CurrencyCount").GetComponent<TextMeshProUGUI>();
             Img_CurrencyImage = basePanel.transform.Find("Img_CurrencyImage").GetComponent<Image>();
@@ -32,5 +34,6 @@ namespace UI.Develop
         }
 
         #endregion
+
     }
 }
