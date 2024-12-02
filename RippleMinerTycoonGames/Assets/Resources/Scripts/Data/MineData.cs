@@ -49,7 +49,7 @@ public class MineData
         int[] levelUps = Mine.levelup;
         int index = 0;
         long maxNumber = 0;
-        while (maxNumber < Level + 1)
+        while (maxNumber < Level)
         {
             if (index <levelUps.Length)
             {
@@ -61,7 +61,6 @@ public class MineData
                 maxNumber += levelUps[levelUps.Length - 1];
                 index++;
             }
-            return index-1;
         }
         return index;
     }
@@ -70,11 +69,11 @@ public class MineData
         float effectuate = m_mine.effectuate;
         float cd= m_mine.cd;
         int equalOrderIndex = GetEqualOrderIndex();
-        for (int i=1;i< equalOrderIndex;i++)
+        for (int i=0;i< equalOrderIndex;i++)
         {
             if (i<= effectuate) 
             {
-                cd /= m_mine.levelpar[0];
+                cd /= (m_mine.levelpar[0]/1000);
             }
         }
         return cd;

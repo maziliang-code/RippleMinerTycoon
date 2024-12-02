@@ -1,10 +1,5 @@
-using System;
 using System.Collections.Generic;
-using UI.Custodian;
-using UI.Develop;
-using UI.SellPanel;
 using UnityEngine;
-using UnityEngine.UIElements;
 namespace UI.Main
 {
     public class MainPanel : BasePanel
@@ -58,8 +53,9 @@ namespace UI.Main
         public void FinshCurrency() 
         {
             m_Panel.GoldCount.text = PlayerManager.Instance.GoldCount.ToFigureString();
-            m_Panel.DiamondCount.text = PlayerManager.Instance.DiamondCount.ToString();
-            m_Panel.CurrencyCount.text = PlayerManager.Instance.CurrencyCount.ToString();
+            m_Panel.DiamondCount.text = PlayerManager.Instance.DiamondCount.ToFigureString();
+            m_Panel.CurrencyCount.text = PlayerManager.Instance.CurrencyCount.ToFigureString();
+            FinshItems();
         }
         public void FinshItems() 
         {

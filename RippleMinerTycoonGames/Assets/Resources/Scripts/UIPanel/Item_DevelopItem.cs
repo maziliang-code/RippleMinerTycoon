@@ -17,6 +17,8 @@ namespace UI.Develop
         public TextMeshProUGUI CurrencyCount { get => Text_CurrencyCount; }
         [SerializeField] private Image Img_CurrencyImage;
         public Image CurrencyImage { get => Img_CurrencyImage; }
+        [SerializeField] private Image Img_DevelImage;
+        public Image DevelImage { get => Img_DevelImage; }
         [SerializeField] private Button Btn_BuyBtn;
         public Button BuyBtn { get => Btn_BuyBtn; }
         [SerializeField] private TextMeshProUGUI Text_BuyText;
@@ -27,6 +29,7 @@ namespace UI.Develop
             Text_DevelName = basePanel.transform.Find("Text_DevelName").GetComponent<TextMeshProUGUI>();
             Text_CurrencyCount = basePanel.transform.Find("Text_CurrencyCount").GetComponent<TextMeshProUGUI>();
             Img_CurrencyImage = basePanel.transform.Find("Img_CurrencyImage").GetComponent<Image>();
+            Img_DevelImage = basePanel.transform.Find("Img_DevelImage").GetComponent<Image>();
             Btn_BuyBtn = basePanel.transform.Find("Btn_BuyBtn").GetComponent<Button>();
             Text_BuyText = basePanel.transform.Find("Btn_BuyBtn/Text_BuyText").GetComponent<TextMeshProUGUI>();
         }

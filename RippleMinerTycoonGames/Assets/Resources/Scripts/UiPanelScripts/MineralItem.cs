@@ -80,9 +80,41 @@ namespace UI.Main
 
         public void Init(MineData mineData)
         {
+            m_Item.Reset(this);
             m_MineData = mineData;
-            m_Item.UnlockCount.text = m_MineData.Mine.unlock.ToString();
+         
+            if ((m_MineData.GetCD() / 1000.00f) < 1)
+            {
+                m_Item.CdText.gameObject.SetActive(false);
+                m_Item.FillText.text = m_MineData.GetProduce().ToFigureString(true) + "/sec";
+            }
+            else
+            {
+                m_Item.CdText.text = (m_MineData.GetCD() / 1000.00f).ToString()+"s";
+                m_Item.CdText.gameObject.SetActive(true);
+                m_Item.FillText.text = m_MineData.GetProduce().ToFigureString(true);
+            }
+           
+            Sprite sprite = Resources.Load<Sprite>("Sprite/MineItem/" + m_MineData.Mine.resource);
+            m_Item.ItemIcon.sprite = sprite;
+            m_Item.UnlockText.text = DispositionManager.Instance.Languages.GetInfoToId(m_MineData.Mine.name).language1; 
+            m_Item.UnlockCount.text = ((ComputeStringFloat)(m_MineData.Mine.unlock)).ToFigureString(true);
             m_Item.Unlock.gameObject.SetActive(!mineData.IsLock);
+            if (!mineData.IsLock)
+            {
+                if (PlayerManager.Instance.GoldCount < (ComputeStringFloat)m_MineData.Mine.unlock)
+                {
+                    Color color = m_Item.Unlock.image.color;
+                    color.a = 0.5f;
+                    m_Item.Unlock.image.color = color;
+                }
+                else
+                {
+                    Color color = m_Item.Unlock.image.color;
+                    color.a = 0f;
+                    m_Item.Unlock.image.color = color;
+                }
+            }
             m_Item.LvUpBtn.gameObject.SetActive(mineData.IsLock);
             m_Item.FillBg.gameObject.SetActive(mineData.IsLock);
             if (!mineData.IsAddItem)
@@ -98,11 +130,21 @@ namespace UI.Main
             m_Item.LvUpText.text = PlayerManager.Instance.GetLvUpText();
             switch (PlayerManager.Instance.MultipleIndex)
             {
-                case 1: m_Item.MultipleText.text = mineData.GetExpend(1).ToString(); break;
-                case 2: m_Item.MultipleText.text = mineData.GetExpend(10).ToString(); break;
-                case 3: m_Item.MultipleText.text = mineData.GetExpend(100).ToString(); break;
-                case 4: m_Item.MultipleText.text = "MAX"; break;
-                case 5:m_Item.MultipleText.text = "NEXT"; break;
+                case 1: m_Item.LvUpUnlock.gameObject.SetActive(false); m_Item.MultipleText.text = mineData.GetExpend(1).ToFigureString(); break;
+                case 2: m_Item.LvUpUnlock.gameObject.SetActive(false); m_Item.MultipleText.text = mineData.GetExpend(10).ToFigureString(); break;
+                case 3: m_Item.LvUpUnlock.gameObject.SetActive(false); m_Item.MultipleText.text = mineData.GetExpend(100).ToFigureString(); break;
+                case 4:
+                    m_Item.MultipleText.text = mineData.GetExpend(m_MineData.GetLevelToExpend()).ToFigureString();
+                    if (m_MineData.GetLevelToExpend() != 0)
+                    {
+                        m_Item.LvUpUnlock.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        m_Item.LvUpUnlock.gameObject.SetActive(true);
+                    }
+                   break;
+                case 5: m_Item.LvUpUnlock.gameObject.SetActive(false); m_Item.MultipleText.text = m_MineData.GetExpend(m_MineData.GetEqualOrder() - m_MineData.Level).ToFigureString() ; break;
             }
         }
         private void Update()
@@ -131,9 +173,9 @@ namespace UI.Main
                 m_Item.FillIcon.fillAmount = fillAmount;
                 if(fillAmount>=1)
                 {
-                    PlayerManager.Instance.ChangeGold(m_MineData.GetProduce());
                     m_Item.FillIcon.fillAmount = 0;
                     m_MineData.IsAddItem = false;
+                    PlayerManager.Instance.ChangeGold(m_MineData.GetProduce());
                 }
             } 
         }

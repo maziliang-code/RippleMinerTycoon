@@ -44,7 +44,7 @@ namespace UI.Develop
                 v.gameObject.SetActive(false);
             }
             m_Panel.SelectMegatoken.gameObject.SetActive(true);
-            type = 2;
+            type = 5;
             FinshItems();
         }
 
@@ -55,7 +55,7 @@ namespace UI.Develop
                 v.gameObject.SetActive(false);
             }
             m_Panel.SelectInvestors.gameObject.SetActive(true);
-            type = 3;
+            type = 4;
             FinshItems();
         }
         private void Init()

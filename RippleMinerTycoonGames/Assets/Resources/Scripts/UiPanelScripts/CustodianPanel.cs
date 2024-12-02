@@ -42,7 +42,7 @@ namespace UI.Custodian
                 v.gameObject.SetActive(false);
             }
             m_Panel.SelectInvestors.gameObject.SetActive(true);
-            type = 2;
+            type = 4;
             FinshItems();
         }
         private void Init()
