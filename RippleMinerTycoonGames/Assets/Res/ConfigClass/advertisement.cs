@@ -32,7 +32,7 @@ public class advertisement
 	///类型 
 	public int type;
 	///参数 
-	public int parameter;
+	public int[] parameter;
 	///冷却时间 
 	public int cd;
 	///每日次数 
@@ -41,4 +41,6 @@ public class advertisement
 	public int[] condition;
 	///条件关系（0是与，1是或，或关系优先级以此降低） 
 	public int relationship;
+	///代币数量(/1000) 
+	public int computerpar;
 }
